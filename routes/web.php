@@ -18,3 +18,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::resource('category', 'CategoryController');
+
+Route::get('{path}', function () {
+    return view('index');
+})->where('path', '(.*)');

@@ -42,12 +42,12 @@ export default {
     },
     methods: {
         getCategory(){
-            this.axios.get('/category/'+this.$route.params.id+'/edit')
+            this.axios.get('/api/category/'+this.$route.params.id+'/edit')
             .then((res)=>{this.category=res.data})
             .catch((err)=>{this.alert=err});
         },
         updateCategory() {
-            this.axios.put('/category/'+this.$route.params.id, this.category)
+            this.axios.put('/api/category/'+this.$route.params.id, this.category)
             .then((res)=>{this.$router.push({name:'categoryList'})})
             .catch((err)=>{this.alert=err});
         }

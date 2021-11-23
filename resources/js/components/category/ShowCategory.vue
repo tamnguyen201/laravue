@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     showCategory(){
-      this.axios.get('/category/'+this.$route.params.id)
+      this.axios.get('/api/category/'+this.$route.params.id)
       .then((res)=>{this.category=res.data})
       .catch((err)=>{this.alert=err});
     }

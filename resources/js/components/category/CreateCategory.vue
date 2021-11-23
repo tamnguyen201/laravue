@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         createCategory() {
-            this.axios.post('/category',this.category)
+            this.axios.post('/api/category',this.category)
             .then((res)=>{this.$router.push({name:'categoryList'})})
             .catch((error)=>{this.alert=error})
         },

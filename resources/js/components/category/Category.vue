@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-if="categories.length>0" v-bind-for="cate in categories">
+                <tr v-if="categories.length>0" v-for="cate in categories">
                     <td>{{cate.id}}</td>
                     <td><router-link :to="{name:'showCategory',params:{id:cate.id}}">{{cate.categoryName}}</router-link></td>
                     <td>{{cate.categoryRank}}</td>
@@ -44,13 +44,13 @@ export default {
     },
     methods:{
         getCategory(){
-            this.axios.get('/category')
+            this.axios.get('/api/category')
             .then((res)=>{this.categories=res.data.categories})
             .catch((error)=>{this.alert=error});
         },
         deleteCategory(id){
             if(confirm('Bạn có muốn xóa mục này?')){
-                this.axios.delete('/category/'+id)
+                this.axios.delete('/api/category/'+id)
                 .then((res)=>{this.categories=res.data.categories;this.alert=res.data.alert})
                 .catch((error)=>{this.alert=error});
             }
